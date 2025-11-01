@@ -29,6 +29,7 @@ const LoanCalculatorView = () => {
     const onSubmit = async (request) => {
         setLoading(true);
         setData(null)
+        setError(null)
         setTimeout(() => {
             PostApi(request).then((r) => {
                 setLoading(false);
@@ -41,11 +42,12 @@ const LoanCalculatorView = () => {
 
         }, 500)
     };
+
     return (
         <div>
 
             <Typography variant="h4" sx={{ mb: "24px" }}>
-                Calculadorar de Emprestimos
+                Calculadorar de Empréstimos
             </Typography>
 
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -105,14 +107,21 @@ const LoanCalculatorView = () => {
                             <Stack component="aside" alignItems="center" textAlign="center" spacing={0} sx={{ m: '12px' }}>
                                 <CircularProgress />
                             </Stack>
-                            : data ?
-                                <CustomizedTables data={data?.competences} />
-                                : error?.data ?
-                                    error?.data?.erros.map((d, i) => {
-                                        return (
-                                            <Alert severity="warning">{d?.message}</Alert>
-                                        )
-                                    }) : error && <Alert severity="error">Server Error</Alert>
+                            :
+                            <>
+                                {data && <CustomizedTables data={data?.competences} />}
+                            </>
+                        }
+
+                        {error?.data.status === 403 &&
+                            error?.data?.erros?.map((d, i) => {
+                                return (
+                                    <Alert key={i} severity="warning">{d?.message}</Alert>
+                                )
+                            })
+                        }
+                        {error?.data.status === 500 &&
+                            <Alert severity="error">Server Error</Alert>
                         }
                     </Grid>
                 </Grid>
