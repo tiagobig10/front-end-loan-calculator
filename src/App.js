@@ -1,23 +1,47 @@
-import logo from './logo.svg';
 import './App.css';
+import LoanCalculatorView from './view/LoanCalculatorView';
+
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Copyright as Footer } from './Components/Copyright';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: '#0897E9',
+      main: '#0897E9',
+      dark: '#0897E9',
+      contrastText: '#fff',
+    },
+    warning: {
+      light: '#fadab6',
+      main: '#ed6c02',
+      dark: '#ed6c02',
+      contrastText: '#fff',
+    },
+    erro: {
+      light: '#c62828',
+      main: '#d30e00',
+      dark: '#c62828',
+      contrastText: '#fff',
+    },
+    info: {
+      light: '#1976d2',
+      main: '#1976d2',
+      dark: '#1976d2',
+      contrastText: '#fff',
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <ThemeProvider theme={theme}>
+        <main className="main-content">
+            <LoanCalculatorView />
+        </main>
+        <Footer />
+      </ThemeProvider>
     </div>
   );
 }
