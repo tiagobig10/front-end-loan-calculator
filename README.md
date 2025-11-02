@@ -1,7 +1,7 @@
 ##  Autor
 Pedro Tiago
 ## Demo
-https://loan-64640.web.app
+Live https://loan-64640.web.app
 
 ##  Visão Geral do Projeto
 O objetivo deste desafio é desenvolver uma interface de usuário completa (Front-end) com uma lógica robusta de cálculo (Back-end) para simular empréstimos, processando datas, valor e taxa de juros, e apresentando um plano de pagamento detalhado.
