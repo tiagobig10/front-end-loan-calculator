@@ -46,8 +46,10 @@ const LoanCalculatorView = () => {
           setData(r?.data);
           return;
         }
-        setError(r?.response);
+        setError(r);
       });
+
+      
     }, 500);
   };
 

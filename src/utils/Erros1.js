@@ -1,26 +1,36 @@
-import { Alert } from '@mui/material';
+import { Alert, styled } from '@mui/material';
 import PropTypes from 'prop-types';
+
+const StyledAlert = styled(Alert)(({ theme }) => ({
+  marginTop: '8px',
+  border: '1px solid #eeeeee'
+}));
+
+
 export default function Error1({ error }) {
     if (!error) {
         return
     }
 
+    // response api error
+    const responseApiError = error?.response
+
     // status code
     const INTERNAL_SERVER_ERROR = 500;
-    const FORDERBIAN = 403;
+    const FORDIDDEN = 403;
 
-    const statusCode = error?.status
-    const listErrors = error?.data?.erros
+    const statusCode = responseApiError?.status
+    const listErrors = responseApiError?.data?.erros
 
-    if (statusCode === FORDERBIAN) {
+    if (statusCode === FORDIDDEN) {
         return (
             <>
                 {
                     listErrors?.map((d, i) => {
                         return (
-                            <Alert key={i} severity="warning">
+                            <StyledAlert key={i} severity="warning">
                                 {d?.message}
-                            </Alert>
+                            </StyledAlert>
                         );
                     })
                 }
@@ -29,12 +39,12 @@ export default function Error1({ error }) {
     }
 
     if (statusCode === INTERNAL_SERVER_ERROR) {
-        return <Alert severity="error">Server Error</Alert>;
+        return <StyledAlert severity="error">Server Error</StyledAlert>;
     }
 
-    return <Alert severity="error">{error?.data?.message}</Alert>;
+    return <StyledAlert severity="error">{error?.message}</StyledAlert>;
 }
 
 Error1.propTypes = {
-    error: PropTypes.any
+    error: PropTypes.object
 };
