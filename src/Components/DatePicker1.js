@@ -5,12 +5,8 @@ import pt from 'date-fns/locale/pt';
 import PropTypes from 'prop-types';
 import { DatePicker } from '@mui/x-date-pickers';
 import { Controller } from 'react-hook-form';
-// eslint-disable-next-line import/no-extraneous-dependencies
 
 const DatePicker1 = ({ name, skeleton, required, control, ...props }) => {
-    // eslint-disable-next-line no-unused-vars, react/prop-types
-    const { id } = props;
-
     return (
         <Controller
             control={control}
