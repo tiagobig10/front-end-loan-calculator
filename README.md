@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+##  Autor
+Pedro Tiago
+## Demo
+https://loan-64640.web.app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##  Visão Geral do Projeto
+O objetivo deste desafio é desenvolver uma interface de usuário completa (Front-end) com uma lógica robusta de cálculo (Back-end) para simular empréstimos, processando datas, valor e taxa de juros, e apresentando um plano de pagamento detalhado.
 
-## Available Scripts
+O projeto visa aferir conhecimentos em **lógica de programação**, **arquitetura de software**, **desenvolvimento Front-end** (HTML, CSS, JavaScript/Frameworks) e **desenvolvimento Back-end** (Java/Spring Boot).
 
-In the project directory, you can run:
+##  Requisitos Funcionais
 
-### `npm start`
+A aplicação deve apresentar uma tela com os seguintes elementos:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. Campos de Entrada (Obrigatórios)
+| Campo | Tipo | Validação |
+| :--- | :--- | :--- |
+| **Data Inicial** | Data | Obrigatório |
+| **Data Final** | Data | Obrigatório (Deve ser **maior** que a Data Inicial) |
+| **Primeiro Pagamento** | Data | Obrigatório (Deve ser **maior** que a Data Inicial e **menor** que a Data Final) |
+| **Valor do Empréstimo** | Numérico | Obrigatório |
+| **Taxa de Juros** | Numérico | Obrigatório |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. Botão de Ação
+* Um botão "Calcular" que deve ser **habilitado** apenas após o preenchimento válido de todos os cinco campos.
+* Ao clicar, a rotina de cálculo deve ser executada.
 
-### `npm test`
+### 3. Grid de Exibição
+* Uma tabela/grid para exibir o resultado do cálculo, mostrando as datas e seus respectivos valores calculados.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Regras de Geração de Datas (Grid)
+1.  A **Data Final** sempre será um pagamento de parcela.
+2.  A grade deve listar a **Data Inicial**, a **Data Final** e **todas as datas de fim de mês** que caem entre a Data Inicial e a Data Final.
+3.  **Parcelas:** Todos os meses entre a Data do Primeiro Pagamento e a Data Final deverão ter uma parcela no dia do primeiro pagamento.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> ** Observação Importante sobre Pagamentos:**
+> Se a data do Primeiro Pagamento for o último dia do mês (ex: `31/01/2024`), o próximo pagamento deverá cair no **último dia do mês seguinte** (ex: `29/02/2024`). A lógica deve tratar corretamente os finais de mês (30, 31, e 28/29 de Fevereiro).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tecnologias Utilizadas
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Camada | Tecnologia/Framework | Versão/Justificativa |
+| :--- | :--- | :--- |
+| **Front-end** | **React** | 18.2.0 |
+| | **JavaScript** | Linguagem principal |
+| | **CSS** | Para estilização, semântica e acessibilidade |
+| **Back-end** | **Java** | 17 |
+| | **Spring Boot** | 7 |
 
-### `npm run eject`
+## Como Rodar o Projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Pré-requisitos
+* **JDK** (Java Development Kit) 11 ou superior
+* **Node.js** e **npm/yarn** (para a aplicação Front-end)
+* IDE de sua preferência (IntelliJ, VSCode, Eclipse)
