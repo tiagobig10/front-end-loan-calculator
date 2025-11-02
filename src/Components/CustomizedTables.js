@@ -35,7 +35,7 @@ const CustomizedTables = ({ data }) => {
               Empréstimo
             </StyledTableCell>
             <StyledTableCell align="center" colSpan={2}>
-              Parcelas
+              Parcela
             </StyledTableCell>
             <StyledTableCell align="center" colSpan={2}>
               Principal
