@@ -54,7 +54,7 @@ const LoanCalculatorView = () => {
   return (
     <>
       <Typography variant="h4" sx={{ mb: "24px" }}>
-        Calculadorar de Empréstimos
+        Calculadora de Empréstimos
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={2}>
