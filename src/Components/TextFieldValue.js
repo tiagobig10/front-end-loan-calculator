@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Controller } from 'react-hook-form';
 import { maskValue } from '../utils/maskValue';
-
-// +==============================|| Esotar Develop ||==============================+ //
-
 export default function TextFieldValue({ required, skeleton, control, name, ...props }) {
-    // const { control } = useFormContext();
-
     return (
         <Controller
             control={control}

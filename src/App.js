@@ -3,6 +3,7 @@ import LoanCalculatorView from './view/LoanCalculatorView';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Copyright as Footer } from './Components/Copyright';
+import { Version1 } from './Components/Version1';
 
 const theme = createTheme({
   palette: {
@@ -38,7 +39,8 @@ function App() {
     <div className="app-container">
       <ThemeProvider theme={theme}>
         <main className="main-content">
-            <LoanCalculatorView />
+          <Version1 />
+          <LoanCalculatorView />
         </main>
         <Footer />
       </ThemeProvider>

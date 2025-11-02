@@ -44,12 +44,10 @@ const LoanCalculatorView = () => {
     };
 
     return (
-        <div>
-
+        <>
             <Typography variant="h4" sx={{ mb: "24px" }}>
                 Calculadorar de Empréstimos
             </Typography>
-
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Grid container spacing={2} >
                     <Grid size={{ xs: 12, sm: 6, md: 2.5 }}>
@@ -112,7 +110,6 @@ const LoanCalculatorView = () => {
                                 {data && <CustomizedTables data={data?.competences} />}
                             </>
                         }
-
                         {error?.data.status === 403 &&
                             error?.data?.erros?.map((d, i) => {
                                 return (
@@ -126,7 +123,7 @@ const LoanCalculatorView = () => {
                     </Grid>
                 </Grid>
             </form>
-        </div>
+        </>
     )
 }
 

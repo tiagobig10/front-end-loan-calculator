@@ -1,12 +1,7 @@
 import { TextField } from '@mui/material';
 import PropTypes from 'prop-types';
 import { Controller } from 'react-hook-form';
-
-// +==============================|| Esotar Develop ||==============================+ //
-
 export default function TextField1({ mask, skeleton, required, control, name, ...props }) {
-    // const { control } = useFormContext();
-
     return (
         <Controller
             control={control}
