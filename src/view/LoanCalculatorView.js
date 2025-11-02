@@ -1,5 +1,4 @@
 import {
-  Alert,
   Button,
   CircularProgress,
   Grid,
@@ -13,6 +12,7 @@ import DatePicker1 from "../Components/DatePicker1";
 import TextFieldValue from "../Components/TextFieldValue";
 import CustomizedTables from "../Components/CustomizedTables";
 import { PostApi } from "../api/PostApi";
+import Error1 from "../utils/Erros1";
 
 const LoanCalculatorView = () => {
   const [loading, setLoading] = React.useState(false);
@@ -135,17 +135,7 @@ const LoanCalculatorView = () => {
             ) : (
               <>{data && <CustomizedTables data={data?.competences} />}</>
             )}
-            {error?.data.status === 403 &&
-              error?.data?.erros?.map((d, i) => {
-                return (
-                  <Alert key={i} severity="warning">
-                    {d?.message}
-                  </Alert>
-                );
-              })}
-            {error?.data.status === 500 && (
-              <Alert severity="error">Server Error</Alert>
-            )}
+            <Error1 error={error} />
           </Grid>
         </Grid>
       </form>

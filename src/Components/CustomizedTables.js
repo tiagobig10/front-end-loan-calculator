@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -79,5 +80,8 @@ const CustomizedTables = ({ data }) => {
     </TableContainer>
   );
 }
+CustomizedTables.propTypes = {
+    data: PropTypes.any
+};
 
 export default CustomizedTables;
