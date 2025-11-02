@@ -1,9 +1,8 @@
-
 // eslint-disable-next-line
 const url1 = 'http://localhost';
 // eslint-disable-next-line no-unused-vars
-const url = 'https://api.teste.com.br';
+const url = 'https://d159modh3rr22x.cloudfront.net';
 
-const api = process.env.NODE_ENV === 'production' ? url : url1;
+const api = process.env.NODE_ENV === 'production' ? url : url;
 
 export default api
